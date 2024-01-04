@@ -68,7 +68,7 @@ def 绘制单个类别变量柱状图(数据表, 变量: str):
 
 
 def 读取SPSS数据(文件所在位置及名称):
-    """ 读取SPSS文件，保留标签内容和有序变量顺序 """
+    """ 读取SPSS文件,保留标签内容和有序变量顺序 """
     result, metadata = pyreadstat.read_sav(
         文件所在位置及名称, apply_value_formats=True, formats_as_ordered_category=True)
     return result, metadata
@@ -190,7 +190,7 @@ def 两个无序类别变量的统计分析(数据表, 自变量, 因变量):
 
     print(F"tau_y系数:{tau_y: 0.4f}", 相关系数判断(tau_y))
     print(tabulate(交互表))
-    print(F"卡方值：{chi2: .2f}, p值：{p: .4f},自由度:{dof}。")
+    print(F"卡方值：{chi2: .2f}, p值:{p: .4f},自由度:{dof}。")
     print(p值判断(p))
 
 
@@ -206,7 +206,7 @@ def 两个有序类别变量的统计分析(数据表, 自变量, 因变量):
 
     print(F"Somers dy系数:{d_y: 0.4f}", 相关系数判断(d_y))
     print(tabulate(交互表))
-    print(F"p值：{p: .4f}")
+    print(F"p值:{p: .4f}")
     print(p值判断(p))
 
 
@@ -220,9 +220,9 @@ def 两个数值变量的统计分析(数据表, 自变量, 因变量):
     fig = px.scatter(数据表, x, y, trendline='ols')
     fig.show()
 
-    print(FR"决定系数r平方：{r*r :0.4f}")
+    print(FR"决定系数r平方:{r*r :0.4f}")
     print(决定系数强弱判断(r*r))
-    print(F"p值：{p: .4f}")
+    print(F"p值:{p: .4f}")
     print(p值判断(p))
 
 
@@ -278,5 +278,5 @@ def 类别变量与数值变量统计分析(数据表, 类别变量, 数值变�
     print(category_means)
     print(F"相关比率：{model.rsquared}")
     print(相关比率强弱判断(model.rsquared))
-    print(F"F检验的p值：{model.f_pvalue}")
+    print(F"F检验的p值:{model.f_pvalue}")
     print(model.summary())
